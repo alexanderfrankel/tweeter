@@ -3,9 +3,14 @@ get '/' do
   erb :index
 end
 
+#sign in natively---------------
 get '/sign_in_native' do
 end
 
+post '/sign_in_native' do
+end
+
+#sign in using twitter----------
 get '/sign_in_twitter' do
   session.delete(:request_token)
   redirect request_token.authorize_url
@@ -28,6 +33,7 @@ get '/auth' do
   erb :index
 end
 
+# post request sent from ajax-----
 post '/tweet' do
   User.find(session[:user_id]).twitter_client.update(params[:tweet])
 end

@@ -7,7 +7,6 @@ $(document).ready(function() {
 
 	$('form').submit(function(event) {
 		event.preventDefault();
-		displayWaitMessage();
 		sendTweet($(this).serialize());
 	});
 
@@ -18,13 +17,14 @@ $(document).ready(function() {
 // private functions---------------------------------------
 
 var displayWaitMessage = function() {
-	$('.container').append("<h5 id='wait_message'>Please wait while your tweet is being sent...</h5>");
+	$('textarea').prop('placeholder', "Please wait while your tweet is being sent...");
 }
 
 var sendTweet = function(form_data) {
 	$.post('/tweet', form_data, function(response) {
-		$('#wait_message').replaceWith("<h5 id='success_message'>Sent successfully.");
 		$('form [name=tweet]').val("")
+		$('textarea').prop('placeholder', "Sent successfully.");
+		resetForm();
 	});
 }
 
@@ -46,4 +46,12 @@ var characterCount = function() {
 	}
 
 	return remaining;
+}
+
+var resetForm = function() {
+	setTimeout(function() { 
+		$('textarea').prop('placeholder', "enter 140 characters or less.");
+		$('textarea').focus();
+		$('#char_remaining').text(140);
+	}, 2000);
 }
