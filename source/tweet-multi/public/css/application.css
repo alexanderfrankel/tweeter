@@ -25,6 +25,18 @@ textarea {
 	padding: 7px;
 	width: 375px;
 	height: 70px;
+	outline: none;
+}
+
+input {
+	font-family: 'Open Sans', sans-serif;
+	color: #E0E0E0;
+	background: #282828;
+	border: 1px solid #99CCFF;
+	border-radius: 10px;
+	padding: 7px;
+	margin: 1px;
+	outline: none;
 }
 
 #char_remaining {
@@ -41,26 +53,29 @@ textarea {
 	border: 1px solid #99CCFF;
 	border-radius: 10px;
 	width: 80px;
+	outline: none;
 }
 
 #submit:hover {
 	cursor: pointer;
 }
 
-/*#submit:disabled {
-	background-color: #282828;
-}*/
+#submit:active {
+	background-color: #E0E0E0;
+	color: #282828;
+}
 
-#sign_out {
+#sign_out, #new_account, #home {
 	font-size: 10px;
 	background-color: #282828;
 	border: none;
 	float: right;
 	margin: 0;
 	padding: 0;
+	outline: none;
 }
 
-#sign_out a {
+#sign_out a, #new_account a, #home a {
 	font-family: 'Open Sans', sans-serif;
 	color: #E0E0E0;
 	text-decoration: none;
@@ -73,6 +88,15 @@ textarea {
 	border-radius: 10px;
 	width: 150px;
 	margin-right: 42px;
+	outline: none;
+}
+
+#sign_in_native:active {
+	background-color: #E0E0E0;
+}
+
+#sign_in_native a:active {
+	color: #282828;
 }
 
 #sign_in_twitter {	
@@ -82,6 +106,15 @@ textarea {
 	border-radius: 10px;
 	width: 150px;
 	margin-left: 42px;
+	outline: none;
+}
+
+#sign_in_twitter:active {
+	background-color: #E0E0E0;
+}
+
+#sign_in_twitter a:active {
+	color: #282828;
 }
 
 #sign_in_native, #sign_in_twitter:hover {
@@ -92,6 +125,10 @@ textarea {
 	font-family: 'Open Sans', sans-serif;
 	color: #E0E0E0;
 	text-decoration: none;
+}
+
+#sign_in_native a:active {
+	color: #282828;
 }
 
 

@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def self.authenticate(username, password)
+    User.where("username = ? AND password = ?", username, password).first
+  end
+
 end

@@ -1,11 +1,11 @@
 $(document).ready(function() {
 
-	$('form').keyup(function(event) {
+	$('#sign_in_twitter_form').keyup(function(event) {
 		$('#char_remaining').text(characterCount());
 	});
 
 
-	$('form').submit(function(event) {
+	$('#sign_in_twitter_form').submit(function(event) {
 		event.preventDefault();
 		sendTweet($(this).serialize());
 	});
@@ -22,7 +22,7 @@ var displayWaitMessage = function() {
 
 var sendTweet = function(form_data) {
 	$.post('/tweet', form_data, function(response) {
-		$('form [name=tweet]').val("")
+		$('#sign_in_twitter_form [name=tweet]').val("")
 		$('textarea').prop('placeholder', "Sent successfully.");
 		resetForm();
 	});
@@ -30,18 +30,18 @@ var sendTweet = function(form_data) {
 
 var characterCount = function() {
 	var charLimit = 140;
-	var remaining = charLimit - $('form [name=tweet]').val().length;
+	var remaining = charLimit - $('#sign_in_twitter_form [name=tweet]').val().length;
 
 	if (remaining === charLimit) {
-		$('form [type=submit]').prop('disabled', true);
+		$('#sign_in_twitter_form [type=submit]').prop('disabled', true);
 		$('#char_remaining').css('color', '#E0E0E0')
 	}
 	else if (remaining < 0) {
-		$('form [type=submit]').prop('disabled', true);
+		$('#sign_in_twitter_form [type=submit]').prop('disabled', true);
 		$('#char_remaining').css('color', '#FF0033')
 	}
 	else {
-		$('form [type=submit]').prop('disabled', false);
+		$('#sign_in_twitter_form [type=submit]').prop('disabled', false);
 		$('#char_remaining').css('color', '#E0E0E0')
 	}
 
