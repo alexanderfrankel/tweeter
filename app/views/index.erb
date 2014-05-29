@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>twitter.</h1>
+
+  <% if @session_user %>
+    <div class="user_true">
+      <form id="sign_in_twitter_form" name="new_tweet" action="/tweet" method="POST">
+        <textarea autofocus="autofocus" type="text" name="tweet" placeholder="enter 140 characters or less." spellcheck="false"></textarea>
+        <input id="submit" type="submit" value="send." disabled="true">
+        <span id="char_remaining">140</span>
+      </form><br>
+
+      <a href="/sign_out"><button id="sign_out"><%= strong('Sign Out') %></button></a>
+    </div>
+
+  <% else %>
+  <div class="user_false">
+    <a href="/sign_in"><button id="sign_in_native">Sign-in native</button></a>
+    <a href="/sign_in_twitter"><button id="sign_in_twitter">Sign-in using twitter</button></a>
+  </div>
+  <% end %>
+
+</div>
