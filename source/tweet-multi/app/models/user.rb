@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	include BCrypt
 
 	def twitter_client
 		Twitter::REST::Client.new do |config|
@@ -9,8 +10,21 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	# bcrypt password----------------------------------
+
 	def self.authenticate(username, password)
-    User.where("username = ? AND password = ?", username, password).first
+		user = User.find_by_username(username)
+		return user if user && (user.password == password)
+		nil
+	end
+
+  def password
+	  @password ||= Password.new(password_hash)
+  end
+
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
   end
 
 end

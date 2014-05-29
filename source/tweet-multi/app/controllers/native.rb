@@ -3,8 +3,16 @@ get '/sign_in_native' do
 end
 
 post '/sign_in_native' do
-	# user = User.authenticate(params[:username], params[:password])
-	 
+	user = User.authenticate(params[:username], params[:password])
+	if user
+		puts "i found a user"
+	else
+		puts "no user here!"
+	end
+	# should set session, but does not make sense yet
+	# if invalid, should redirect to same page
+	# session[:user_id] = user.id if user
+	redirect '/'
 end
 	
 get '/new_account' do
@@ -12,5 +20,8 @@ get '/new_account' do
 end
 
 post '/new_account' do
-  session[:user_id] = User.where(username: params[:username]).first_or_create(oauth_token: access_token.token, oauth_secret: access_token.secret).id
+	# needs to set session, but doesnt make sense yet
+	# should send error message if username already exists
+  User.where(username: params[:username]).first_or_create(password: params[:password]).id
+  redirect '/'
 end

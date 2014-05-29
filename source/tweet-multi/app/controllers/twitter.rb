@@ -13,7 +13,7 @@ end
 get '/auth' do
   access_token = request_token.get_access_token(:oauth_verifier => params[:oauth_verifier])  
 
-  session[:user_id] = User.where(username: access_token.params["screen_name"]).first_or_create(oauth_token: access_token.token, oauth_secret: access_token.secret).id
+  session[:user_id] = User.where(twitter_name: access_token.params["screen_name"]).first_or_create(oauth_token: access_token.token, oauth_secret: access_token.secret).id
 
   @session_user = session[:user_id]
 

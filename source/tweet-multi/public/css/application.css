@@ -1,14 +1,12 @@
+/*--------- global styling ------------*/
+
 html {
 	background-color: #282828;
 }
 
-.container {
-	background-color: #282828;
-  margin: 20px auto;
-  width: 390px;
-  padding: 0px 20px 20px 20px;
-  border: 1px solid #E0E0E0;
-  border-radius: 10px;
+a {
+	font-family: 'Open Sans', sans-serif;
+	text-decoration: none;
 }
 
 h1 {
@@ -39,9 +37,48 @@ input {
 	outline: none;
 }
 
+/*--------- typography ----------*/
+
+.container {
+	background-color: #282828;
+  margin: 20px auto;
+  width: 390px;
+  padding: 0px 20px 20px 20px;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+}
+
 #char_remaining {
 	color: #E0E0E0;
 	font-size: 10px;
+}
+
+#sign_in_native {
+	font-size: 14px;
+	background-color: #282828;
+	border: 1px solid #99CCFF;
+	border-radius: 10px;
+	width: 150px;
+	margin-right: 42px;
+	outline: none;
+	color: #E0E0E0;
+}
+
+#sign_in_twitter {	
+	font-size: 14px;
+	background-color: #282828;
+	border: 1px solid #99CCFF;
+	border-radius: 10px;
+	width: 150px;
+	margin-left: 42px;
+	outline: none;
+	color: #E0E0E0;
+}
+
+#sign_in_native:hover, #sign_in_twitter:hover {
+	background-color: #E0E0E0;
+	color: #282828;
+	cursor: pointer;
 }
 
 #submit {	
@@ -58,14 +95,12 @@ input {
 
 #submit:hover {
 	cursor: pointer;
-}
-
-#submit:active {
 	background-color: #E0E0E0;
 	color: #282828;
 }
 
 #sign_out, #new_account, #home {
+	color: #E0E0E0;
 	font-size: 10px;
 	background-color: #282828;
 	border: none;
@@ -75,60 +110,6 @@ input {
 	outline: none;
 }
 
-#sign_out a, #new_account a, #home a {
-	font-family: 'Open Sans', sans-serif;
-	color: #E0E0E0;
-	text-decoration: none;
-}
 
-#sign_in_native {
-	font-size: 14px;
-	background-color: #282828;
-	border: 1px solid #99CCFF;
-	border-radius: 10px;
-	width: 150px;
-	margin-right: 42px;
-	outline: none;
-}
-
-#sign_in_native:active {
-	background-color: #E0E0E0;
-}
-
-#sign_in_native a:active {
-	color: #282828;
-}
-
-#sign_in_twitter {	
-	font-size: 14px;
-	background-color: #282828;
-	border: 1px solid #99CCFF;
-	border-radius: 10px;
-	width: 150px;
-	margin-left: 42px;
-	outline: none;
-}
-
-#sign_in_twitter:active {
-	background-color: #E0E0E0;
-}
-
-#sign_in_twitter a:active {
-	color: #282828;
-}
-
-#sign_in_native, #sign_in_twitter:hover {
-	cursor: pointer;
-}
-
-#sign_in_native a, #sign_in_twitter a {
-	font-family: 'Open Sans', sans-serif;
-	color: #E0E0E0;
-	text-decoration: none;
-}
-
-#sign_in_native a:active {
-	color: #282828;
-}
 
 
